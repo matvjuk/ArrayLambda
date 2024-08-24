@@ -13,3 +13,5 @@ private:
    std::unordered_map<std::string,std::experimental::any> list;
 };
 
+template<typename T, typename ...Args>
+T call(Args args, void* lambda);
