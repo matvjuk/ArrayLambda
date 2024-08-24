@@ -16,3 +16,11 @@ void* LambdaList::find(std::string name)
 {
     return static_cast<void*>(list.find(name));
 }
+
+template<typename T, typename ...Args>
+T call(Args args, void* lambda)
+{
+    typedef T(*LAMBDA)(Args...);
+    auto func = static_cast<LAMBDA>(lambda);
+    return func(args...);
+}
