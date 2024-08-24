@@ -15,7 +15,7 @@ void LambdaList::remove(std::string name)
 void* LambdaList::find(std::string name)
 {
     auto lambda = list.find(name);
-    return static_cast<void*>(&lambda);
+    return std::experimental::any_cast<void*>(lambda);
 }
 
 template<typename T, typename ...Args>
